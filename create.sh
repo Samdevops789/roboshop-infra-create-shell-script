@@ -18,7 +18,7 @@ create_ec2() {
       --iam-instance-profile Name=SecretManager_Role_for_RoboShop_Nodes \
       | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
-  sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json>/tmp/record.json
+  sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json >/tmp/record.json
   aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
 }
 
@@ -31,3 +31,5 @@ for component in catalogue cart user shipping payment frontend mongodb mysql rab
   COMPONENT="${component}-${ENV}"
   create_ec2
 done
+
+
