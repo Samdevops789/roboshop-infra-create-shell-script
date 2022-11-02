@@ -13,7 +13,7 @@ create_ec2() {
       --image-id ${AMI_ID} \
       --instance-type t3.micro \
       --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}, {Key=Monitor,Value=Yes}]"  \
-      --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}"\
+      --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}" \
       --security-group-ids ${SGID} \
       --iam-instance-profile Name=SecretManager_Role_for_RoboShop_Nodes \
       | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
