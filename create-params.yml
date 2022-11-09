@@ -14,7 +14,7 @@
         - {key: "mutable.cart.dev.CATALOGUE_HOST", value: "catalogue-dev.roboshop.internal"}
         - {key: "mutable.cart.dev.CATALOGUE_HOST", value: "catalogue-dev.roboshop.internal"}
         - {key: "mutable.catalogue.dev.MONGO", value: "true"}
-        - {key: "mutable.catalogue.dev.MONGO", value: "mongodb://mongodb-{{ENV}}.roboshop.internal:27017/catalogue"}
+        - {key: "mutable.catalogue.dev.MONGO", value: "mongodb://mongodb-env.roboshop.internal:27017/catalogue"}
         - {key: "mutable.payment.dev.CART_HOST", value: "cart-dev.roboshop.internal"}
         - {key: "mutable.payment.dev.USER_HOST", value: "user-dev.roboshop.internal"}
         - {key: "mutable.payment.dev.AMQP_HOST", value: "rabbitmq-dev.roboshop.internal"}
